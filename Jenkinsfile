@@ -83,6 +83,17 @@ pipeline {
             }
         }
       }
-    }       
+    }    
+    stage('Push to k8s') {
+      steps {
+          container(name: 'cli-tools') {
+            sh "echo Publicando a K8s...."
+            sh "wget -O argocd http://${ARGOCD_SERVER}/download/argocd-linux-amd64 "
+            sh "chmod 755 argocd"
+            sh "./argocd app sync ${ARGOCD_PROJECT} --auth-token ${ARGOCD_APITOKEN} --plaintext"
+          }
+      }    
+    }
+           
   }
 }
