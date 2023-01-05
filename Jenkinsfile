@@ -6,7 +6,7 @@ pipeline {
     DOCKER_REPO = 'njguibert'
     DOCKER_IMG_NAMEREPO = 'cicd-test-01'
     GIT_REPO = 'njguibert/cicd-test-01'
-    ARGOCD_SERVER='argocd-server.argocd'
+    ARGOCD_SERVER='argocd.homelab.test'
     ARGOCD_PROJECT='cicd-test-01'
     ARGOCD_APITOKEN='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcmdvY2QiLCJzdWIiOiJtaWNyb2s4czphcGlLZXkiLCJuYmYiOjE2NzI0ODg2MjMsImlhdCI6MTY3MjQ4ODYyMywianRpIjoiN2FhMzJmNzEtYjRmYi00MzgwLWEyZWYtOWZmMDgwZDBmNWRkIn0.1EAwOY7voYxMdm0blH4D1kNPdAzrspTywNYd87K6n-Q'
     NAMESPACE='argotest'
