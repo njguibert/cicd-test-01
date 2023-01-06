@@ -93,7 +93,9 @@ pipeline {
             sh "wget -O argocd http://${ARGOCD_SERVER}/download/argocd-linux-amd64 "
             //sh "curl -sSL -k -o argocd https://${ARGOCD_SERVER}/download/argocd-linux-amd64"
             sh "chmod 755 argocd"
+            //sh "./argocd app sync ${ARGOCD_PROJECT} --auth-token ${ARGOCD_APITOKEN} --plaintext"
             sh "./argocd app sync ${ARGOCD_PROJECT} --auth-token ${ARGOCD_APITOKEN} --plaintext"
+            sh "./argocd app wait -l app.kubernetes.io/instance=${ARGOCD_PROJECT} --sync --health --timeout 60 --auth-token ${ARGOCD_APITOKEN} --plaintext"
           }
       }    
     }
